@@ -1,5 +1,6 @@
 package tn.esprit.spring.service.impl;
 
+import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 import org.springframework.stereotype.Service;
@@ -38,6 +39,11 @@ public class UserServiceImpl implements IUserService{
 	@Override
 	public User getUserByUsername(String username) {
 		return userRepository.findByLogin(username).orElse(null);
+	}
+
+	@Override
+	public List<User> getAll() {
+		return userRepository.findAll();
 	}
 
 }

@@ -28,7 +28,7 @@ public class ChatController {
  @CrossOrigin(origins = "http://localhost:4200")
  public ChatMessage chat(ChatMessage message) throws Exception {
      Thread.sleep(1000); // simulated delay
-     return new ChatMessage(message.getText(), message.getUser(), message.getDestination());
+     return new ChatMessage(message.getText(), message.getUser(), message.getDestination(), message.getDate());
  }
 
   @MessageMapping("/hello")
