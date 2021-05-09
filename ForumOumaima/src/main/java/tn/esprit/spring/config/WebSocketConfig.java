@@ -2,9 +2,11 @@ package tn.esprit.spring.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;
+import org.springframework.util.AntPathMatcher;
 import org.springframework.web.socket.config.annotation.EnableWebSocketMessageBroker;
 import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
 import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerConfigurer;
+import tn.esprit.spring.handler.CustomHandshakeHandler;
 
 @Configuration
 //Enables WebSocket message handling
@@ -18,6 +20,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
       * back to the client on destinations prefixed with /message
       * */
      config.enableSimpleBroker("/message");
+//     config.setPathMatcher(new AntPathMatcher("."));
      /*
      * designates the /app prefix for messages that are bound for
      * methods annotated with @MessageMapping
@@ -33,7 +36,15 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
      * Angular application as a client
      *
      * */
-     registry.addEndpoint("/socket").setAllowedOriginPatterns("*")
-             .withSockJS();
+//     registry.addEndpoint("/socket")
+//         .setAllowedOriginPatterns("http://localhost:4200")
+//         .setAllowedOrigins("http://localhost:4200");
+//         .setHandshakeHandler(new CustomHandshakeHandler());
+
+     registry.addEndpoint("/socket")
+         .setAllowedOriginPatterns("http://localhost:4200")
+         .setAllowedOrigins("http://localhost:4200")
+//         .setHandshakeHandler(new CustomHandshakeHandler())
+         .withSockJS();
  }
 }

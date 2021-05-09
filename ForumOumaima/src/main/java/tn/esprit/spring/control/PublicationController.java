@@ -35,7 +35,7 @@ import tn.esprit.spring.service.IPublicationService;
 
 @AllArgsConstructor
 @RestController
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/publication")
 public class PublicationController {
 	

@@ -1,43 +1,18 @@
 package tn.esprit.spring.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+
+@AllArgsConstructor
+@Getter
+@Setter
 public class ChatMessage {
     private String text;
-    private String username;
-    private String avatar;
+    private User user;
+    private Long destination;
 
-    public ChatMessage(){
-
-    }
-
-    public ChatMessage(String text ,String username, String avatar) {
-        this.text = text;
-        this.username = username;
-        this.avatar = avatar;
-    }
-
-
-    public String getText() {
-        return text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-    }
-
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getAvatar() {
-        return avatar;
-    }
-
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
+    public ChatMessage(String s) {
+        this.text = s;
     }
 }
